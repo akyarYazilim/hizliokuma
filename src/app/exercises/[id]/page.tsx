@@ -7,7 +7,7 @@ import { Button } from '@/components/common/Button';
 import SpeedReadingExercise from '@/components/exercises/SpeedReadingExercise';
 import WordRecognitionExerciseComponent from '@/components/exercises/WordRecognitionExercise';
 import PeripheralVisionExercise from '@/components/exercises/PeripheralVisionExercise';
-import { SpeedReaderExerciseComponent } from '@/components/exercises/SpeedReaderExercise';
+import SpeedReaderExerciseComponent from '@/components/exercises/SpeedReaderExercise';
 import { exerciseService } from '@/services/ExerciseService';
 import { storageService } from '@/services/StorageService';
 import { Exercise, ExerciseResult, SpeedTestExercise, WordRecognitionExercise as WordRecognitionExerciseType, PeripheralVisionExercise as PeripheralVisionExerciseType, SpeedReaderExercise as SpeedReaderExerciseType } from '@/types';

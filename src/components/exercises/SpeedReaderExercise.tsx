@@ -306,3 +306,6 @@ export const SpeedReaderExerciseComponent: React.FC<SpeedReaderExerciseComponent
     </div>
   );
 };
+
+export default SpeedReaderExerciseComponent;
+
