@@ -1,4 +1,4 @@
-import { Exercise, WordRecognitionExercise, SpeedTestExercise, PeripheralVisionExercise, SpeedReaderExercise, SmoothPursuitExercise, AdvancedEyeTrackingExercise } from '@/types';
+import { Exercise, WordRecognitionExercise, SpeedTestExercise, PeripheralVisionExercise, SpeedReaderExercise, SmoothPursuitExercise, AdvancedEyeTrackingExercise, RapidWordRecognitionExercise } from '@/types';
 
 // Word Recognition Exercise
 export const WORD_RECOGNITION_EXERCISE: WordRecognitionExercise = {
@@ -156,6 +156,42 @@ export const ADVANCED_EYE_TRACKING_EXERCISE: AdvancedEyeTrackingExercise = {
   trackingArea: { width: 800, height: 600 },
 };
 
+// Word pool for Rapid Word Recognition Exercise
+const RAPID_WORD_POOL = [
+  // Teknoloji (Technology)
+  'bilgisayar', 'yazılım', 'donanım', 'internet', 'telefon', 'ekran', 'klavye', 'fare', 'modem', 'router',
+  'server', 'bulut', 'veri', 'şifre', 'güvenlik', 'ağ', 'program', 'kod', 'sistem', 'uygulama',
+  // Eğitim (Education)
+  'okul', 'üniversite', 'öğretmen', 'öğrenci', 'sınıf', 'ders', 'kitap', 'test', 'sınav', 'diploma',
+  'eğitim', 'bilgi', 'öğrenme', 'kuş', 'kalem', 'defter', 'kütüphane', 'araştırma', 'akademi', 'seminer',
+  // Sağlık (Health)
+  'doktor', 'hastane', 'ilaç', 'sağlık', 'hastalık', 'tedavi', 'eczane', 'hasta', 'nabız', 'göz',
+  'kulak', 'diş', 'vücut', 'kalp', 'beyin', 'pulmoner', 'tıp', 'cerrahi', 'aşı', 'antiyotik',
+  // Spor (Sports)
+  'futbol', 'basketbol', 'tenis', 'voleybol', 'atlet', 'spor', 'oyuncu', 'maç', 'takım', 'hakem',
+  'stadyum', 'antrenör', 'antrenması', 'rekor', 'medal', 'şampiyonluk', 'lig', 'kupa', 'skor', 'gol',
+  // Sanat (Art)
+  'resim', 'müzik', 'sanat', 'sahne', 'tiyatro', 'sinema', 'film', 'oyuncu', 'şarkı', 'dans',
+  'koreografi', 'tasarım', 'heykel', 'ressam', 'sanatçı', 'beste', 'melodi', 'ritim', 'konsert', 'gösteri',
+  // Doğa (Nature)
+  'ağaç', 'çiçek', 'bitki', 'hayvan', 'kuş', 'balık', 'böcek', 'çiçek', 'Orman', 'dağ',
+  'river', 'göl', 'deniz', 'okyanus', 'küşş', 'havası', 'toprak', 'kaya', 'kumlu', 'çal'
+];
+
+// Rapid Word Recognition Exercise
+export const RAPID_WORD_RECOGNITION_EXERCISE: RapidWordRecognitionExercise = {
+  id: 'rapid-word-recognition-1',
+  title: 'Hızlı Kelime Tanıma',
+  description: '100 kelimeden rastgele seçilmiş kelimeleri hızlıca gösterilecek, tanımaya çalışın',
+  category: 'rapid-word-recognition',
+  difficulty: 'intermediate',
+  duration: 180,
+  icon: '⚡📚',
+  words: RAPID_WORD_POOL,
+  displayDuration: 800, // 800ms gösterim süresi
+  roundCount: 20, // 20 kelime test et
+};
+
 // Peripheral Vision Exercise
 export const PERIPHERAL_VISION_EXERCISE: PeripheralVisionExercise = {
   id: 'peripheral-vision-1',
@@ -179,6 +215,7 @@ export const ALL_EXERCISES: Exercise[] = [
   SPEEDREADER_EXERCISE,
   SMOOTH_PURSUIT_EXERCISE,
   ADVANCED_EYE_TRACKING_EXERCISE,
+  RAPID_WORD_RECOGNITION_EXERCISE,
   PERIPHERAL_VISION_EXERCISE,
 ];
 
@@ -190,6 +227,7 @@ export const EXERCISE_CATEGORIES = {
   'speedreader': 'Speed Reader (RSVP)',
   'smooth-pursuit': 'Smooth Pursuit (Göz Takibi)',
   'advanced-eye-tracking': 'İleri Göz Takibi',
+  'rapid-word-recognition': 'Hızlı Kelime Tanıma',
   'peripheral-vision': 'Çevre Görüş',
 } as const;
 

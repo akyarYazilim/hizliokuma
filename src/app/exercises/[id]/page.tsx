@@ -10,9 +10,10 @@ import PeripheralVisionExercise from '@/components/exercises/PeripheralVisionExe
 import SpeedReaderExerciseComponent from '@/components/exercises/SpeedReaderExercise';
 import SmoothPursuitExerciseComponent from '@/components/exercises/SmoothPursuitExercise';
 import AdvancedEyeTrackingExerciseComponent from '@/components/exercises/AdvancedEyeTrackingExercise';
+import RapidWordRecognitionComponent from '@/components/exercises/RapidWordRecognitionExercise';
 import { exerciseService } from '@/services/ExerciseService';
 import { storageService } from '@/services/StorageService';
-import { Exercise, ExerciseResult, SpeedTestExercise, WordRecognitionExercise as WordRecognitionExerciseType, PeripheralVisionExercise as PeripheralVisionExerciseType, SpeedReaderExercise as SpeedReaderExerciseType, SmoothPursuitExercise as SmoothPursuitExerciseType, AdvancedEyeTrackingExercise as AdvancedEyeTrackingExerciseType } from '@/types';
+import { Exercise, ExerciseResult, SpeedTestExercise, WordRecognitionExercise as WordRecognitionExerciseType, PeripheralVisionExercise as PeripheralVisionExerciseType, SpeedReaderExercise as SpeedReaderExerciseType, SmoothPursuitExercise as SmoothPursuitExerciseType, AdvancedEyeTrackingExercise as AdvancedEyeTrackingExerciseType, RapidWordRecognitionExercise as RapidWordRecognitionExerciseType } from '@/types';
 import { formatPercentage, getScoreBadge, getWPMLevel } from '@/utils/formatters';
 import { Card as CardComponent, CardHeader as CardHeaderComponent, CardBody as CardBodyComponent } from '@/components/common/Card';
 
@@ -215,6 +216,13 @@ export default function ExercisePage({ params }: ExercisePageProps) {
       return (
         <PeripheralVisionExercise
           exercise={exercise as PeripheralVisionExerciseType}
+          onComplete={handleExerciseComplete}
+        />
+      );
+    } else if (exercise.category === 'rapid-word-recognition') {
+      return (
+        <RapidWordRecognitionComponent
+          exercise={exercise as RapidWordRecognitionExerciseType}
           onComplete={handleExerciseComplete}
         />
       );

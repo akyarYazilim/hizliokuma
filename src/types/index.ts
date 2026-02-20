@@ -17,7 +17,8 @@ export type ExerciseCategory =
   | 'peripheral-vision'
   | 'speedreader'
   | 'smooth-pursuit'
-  | 'advanced-eye-tracking';
+  | 'advanced-eye-tracking'
+  | 'rapid-word-recognition';
 
 export type DifficultyLevel = 'beginner' | 'intermediate' | 'advanced';
 
@@ -102,6 +103,13 @@ export interface AdvancedEyeTrackingExercise extends Exercise {
   patterns: Array<'circle' | 'zigzag' | 'figure8' | 'spiral' | 'square'>; // Movement patterns
   targetSize: number; // Base size
   trackingArea: { width: number; height: number };
+}
+
+// Rapid Word Recognition Exercise
+export interface RapidWordRecognitionExercise extends Exercise {
+  words: string[]; // Word pool (100+ words)
+  displayDuration: number; // How long to show each word (ms)
+  roundCount: number; // Number of words to test
 }
 
 // API Response Types
