@@ -11,6 +11,8 @@ import SpeedReaderExerciseComponent from '@/components/exercises/SpeedReaderExer
 import SmoothPursuitExerciseComponent from '@/components/exercises/SmoothPursuitExercise';
 import AdvancedEyeTrackingExerciseComponent from '@/components/exercises/AdvancedEyeTrackingExercise';
 import RapidWordRecognitionComponent from '@/components/exercises/RapidWordRecognitionExercise';
+import FocusTrainingComponent from '@/components/exercises/FocusTrainingExercise';
+import ComprehensionComponent from '@/components/exercises/ComprehensionExercise';
 import { exerciseService } from '@/services/ExerciseService';
 import { storageService } from '@/services/StorageService';
 import { Exercise, ExerciseResult, SpeedTestExercise, WordRecognitionExercise as WordRecognitionExerciseType, PeripheralVisionExercise as PeripheralVisionExerciseType, SpeedReaderExercise as SpeedReaderExerciseType, SmoothPursuitExercise as SmoothPursuitExerciseType, AdvancedEyeTrackingExercise as AdvancedEyeTrackingExerciseType, RapidWordRecognitionExercise as RapidWordRecognitionExerciseType } from '@/types';
@@ -223,6 +225,20 @@ export default function ExercisePage({ params }: ExercisePageProps) {
       return (
         <RapidWordRecognitionComponent
           exercise={exercise as RapidWordRecognitionExerciseType}
+          onComplete={handleExerciseComplete}
+        />
+      );
+    } else if (exercise.category === 'focus-training') {
+      return (
+        <FocusTrainingComponent
+          exercise={exercise as Exercise}
+          onComplete={handleExerciseComplete}
+        />
+      );
+    } else if (exercise.category === 'comprehension') {
+      return (
+        <ComprehensionComponent
+          exercise={exercise as SpeedTestExercise}
           onComplete={handleExerciseComplete}
         />
       );
