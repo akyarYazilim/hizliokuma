@@ -7,9 +7,10 @@ import { Button } from '@/components/common/Button';
 import SpeedReadingExercise from '@/components/exercises/SpeedReadingExercise';
 import WordRecognitionExerciseComponent from '@/components/exercises/WordRecognitionExercise';
 import PeripheralVisionExercise from '@/components/exercises/PeripheralVisionExercise';
+import { SpeedReaderExerciseComponent } from '@/components/exercises/SpeedReaderExercise';
 import { exerciseService } from '@/services/ExerciseService';
 import { storageService } from '@/services/StorageService';
-import { Exercise, ExerciseResult, SpeedTestExercise, WordRecognitionExercise as WordRecognitionExerciseType, PeripheralVisionExercise as PeripheralVisionExerciseType } from '@/types';
+import { Exercise, ExerciseResult, SpeedTestExercise, WordRecognitionExercise as WordRecognitionExerciseType, PeripheralVisionExercise as PeripheralVisionExerciseType, SpeedReaderExercise as SpeedReaderExerciseType } from '@/types';
 import { formatPercentage, getScoreBadge, getWPMLevel } from '@/utils/formatters';
 import { Card as CardComponent, CardHeader as CardHeaderComponent, CardBody as CardBodyComponent } from '@/components/common/Card';
 
@@ -184,6 +185,13 @@ export default function ExercisePage({ params }: ExercisePageProps) {
       return (
         <WordRecognitionExerciseComponent
           exercise={exercise as WordRecognitionExerciseType}
+          onComplete={handleExerciseComplete}
+        />
+      );
+    } else if (exercise.category === 'speedreader') {
+      return (
+        <SpeedReaderExerciseComponent
+          exercise={exercise as SpeedReaderExerciseType}
           onComplete={handleExerciseComplete}
         />
       );

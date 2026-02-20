@@ -1,4 +1,4 @@
-import { Exercise, WordRecognitionExercise, SpeedTestExercise, PeripheralVisionExercise } from '@/types';
+import { Exercise, WordRecognitionExercise, SpeedTestExercise, PeripheralVisionExercise, SpeedReaderExercise } from '@/types';
 
 // Word Recognition Exercise
 export const WORD_RECOGNITION_EXERCISE: WordRecognitionExercise = {
@@ -82,6 +82,50 @@ export const COMPREHENSION_EXERCISE: Exercise = {
   icon: '📚',
 };
 
+// Speed Reader Exercise (RSVP - Rapid Serial Visual Presentation)
+export const SPEEDREADER_EXERCISE: SpeedReaderExercise = {
+  id: 'speedreader-1',
+  title: 'Speed Reader (RSVP)',
+  description: 'Hızlı seri görsel sunum tekniği ile okuma hızınızı arttırın',
+  category: 'speedreader',
+  difficulty: 'intermediate',
+  duration: 300,
+  icon: '⚡📖',
+  text: `Hızlı okuma, bilgi çağında önemli bir beceridir. Günümüzde insanlar her gün çok fazla metinle karşı karşıya gelir.
+  İnternet, sosyal medya, e-mails ve online haberler, bizi sürekli bir bilgi akışının ortasında bırakır.
+  Bu nedenle, etkili bir şekilde hızlı okuma yapabilmek, modern yaşamda kritik bir yeterlik haline gelmiştir.
+  Hızlı okuma teknikleri, özellikle öğrenciler, profesyoneller ve araştırmacılar için değerlidir.
+  RSVP (Rapid Serial Visual Presentation) yöntemi, ekranda tek bir kelimeyi göstererek, göz hareketini azaltır ve
+  sözde geri adımlamayı (regression) ortadan kaldırır. Bu şekilde, beyin daha verimli bir şekilde bilgiyi işleyebilir.
+  Hızlı okuma pratikleri yaparak, dakikada çok daha fazla kelime okuyabilirsiniz, aynı zamanda anlama yeteneğinizi koruyor olursunuz.`,
+  wordCount: 0,
+  wpmOptions: [300, 400, 500, 600],
+  comprehensionQuestions: [
+    {
+      id: 'q1',
+      question: 'RSVP yöntemi hangi sorunu çözmek için kullanılır?',
+      options: [
+        'Yazı boyutunu ayarlamak',
+        'Göz hareketini azaltmak ve geri adımlamayı ortadan kaldırmak',
+        'Işık parlaklığını kontrol etmek',
+        'Metin rengini değiştirmek'
+      ],
+      correctAnswer: 'Göz hareketini azaltmak ve geri adımlamayı ortadan kaldırmak',
+    },
+    {
+      id: 'q2',
+      question: 'Hızlı okuma hangi mesleklerdeki kişiler için önemli olabilir?',
+      options: [
+        'Sadece öğrenciler için',
+        'Yalnızca yazarlar için',
+        'Öğrenciler, profesyoneller ve araştırmacılar için',
+        'Hiç kimse için gerekli değil'
+      ],
+      correctAnswer: 'Öğrenciler, profesyoneller ve araştırmacılar için',
+    },
+  ],
+};
+
 // Peripheral Vision Exercise
 export const PERIPHERAL_VISION_EXERCISE: PeripheralVisionExercise = {
   id: 'peripheral-vision-1',
@@ -102,6 +146,7 @@ export const ALL_EXERCISES: Exercise[] = [
   SPEED_TEST_EXERCISE,
   FOCUS_TRAINING_EXERCISE,
   COMPREHENSION_EXERCISE,
+  SPEEDREADER_EXERCISE,
   PERIPHERAL_VISION_EXERCISE,
 ];
 
@@ -110,6 +155,7 @@ export const EXERCISE_CATEGORIES = {
   'speed-test': 'Hız Testi',
   'comprehension': 'Anlama',
   'focus-training': 'Fokus Antrenmanı',
+  'speedreader': 'Speed Reader (RSVP)',
   'peripheral-vision': 'Çevre Görüş',
 } as const;
 

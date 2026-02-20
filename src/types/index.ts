@@ -14,7 +14,8 @@ export type ExerciseCategory =
   | 'speed-test' 
   | 'comprehension' 
   | 'focus-training' 
-  | 'peripheral-vision';
+  | 'peripheral-vision'
+  | 'speedreader';
 
 export type DifficultyLevel = 'beginner' | 'intermediate' | 'advanced';
 
@@ -75,6 +76,14 @@ export interface PeripheralVisionExercise extends Exercise {
   gridSize: number; // 3x3, 4x4, etc.
   targetCount: number;
   displayDuration: number; // milliseconds
+}
+
+// Speed Reader Exercise (RSVP - Rapid Serial Visual Presentation)
+export interface SpeedReaderExercise extends Exercise {
+  text: string;
+  wordCount: number;
+  wpmOptions: number[]; // Default WPM speeds to choose from
+  comprehensionQuestions: ComprehensionQuestion[];
 }
 
 // API Response Types
