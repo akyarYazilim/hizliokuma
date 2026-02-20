@@ -150,7 +150,7 @@ useEffect(() => {
         top:`${(target.y/exercise.trackingArea.height)*100}%`,
         transform:'translate(-50%,-50%)',
         borderRadius:'50%', 
-        backgroundColor:'#c8ff00b3',
+        backgroundColor:'#fff700',
         boxShadow:'0 0 30px rgba(0, 0, 0, 0.8)'
       }} />
 
