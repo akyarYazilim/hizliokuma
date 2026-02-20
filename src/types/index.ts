@@ -15,7 +15,8 @@ export type ExerciseCategory =
   | 'comprehension' 
   | 'focus-training' 
   | 'peripheral-vision'
-  | 'speedreader';
+  | 'speedreader'
+  | 'smooth-pursuit';
 
 export type DifficultyLevel = 'beginner' | 'intermediate' | 'advanced';
 
@@ -84,6 +85,13 @@ export interface SpeedReaderExercise extends Exercise {
   wordCount: number;
   wpmOptions: number[]; // Default WPM speeds to choose from
   comprehensionQuestions: ComprehensionQuestion[];
+}
+
+// Smooth Pursuit Exercise (Eye Tracking)
+export interface SmoothPursuitExercise extends Exercise {
+  speeds: number[]; // Available speed levels (pixels per second)
+  targetSize: number; // Size of the target circle in pixels
+  trackingArea: { width: number; height: number }; // Viewport dimensions
 }
 
 // API Response Types

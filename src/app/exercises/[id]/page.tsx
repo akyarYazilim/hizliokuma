@@ -8,9 +8,10 @@ import SpeedReadingExercise from '@/components/exercises/SpeedReadingExercise';
 import WordRecognitionExerciseComponent from '@/components/exercises/WordRecognitionExercise';
 import PeripheralVisionExercise from '@/components/exercises/PeripheralVisionExercise';
 import SpeedReaderExerciseComponent from '@/components/exercises/SpeedReaderExercise';
+import SmoothPursuitExerciseComponent from '@/components/exercises/SmoothPursuitExercise';
 import { exerciseService } from '@/services/ExerciseService';
 import { storageService } from '@/services/StorageService';
-import { Exercise, ExerciseResult, SpeedTestExercise, WordRecognitionExercise as WordRecognitionExerciseType, PeripheralVisionExercise as PeripheralVisionExerciseType, SpeedReaderExercise as SpeedReaderExerciseType } from '@/types';
+import { Exercise, ExerciseResult, SpeedTestExercise, WordRecognitionExercise as WordRecognitionExerciseType, PeripheralVisionExercise as PeripheralVisionExerciseType, SpeedReaderExercise as SpeedReaderExerciseType, SmoothPursuitExercise as SmoothPursuitExerciseType } from '@/types';
 import { formatPercentage, getScoreBadge, getWPMLevel } from '@/utils/formatters';
 import { Card as CardComponent, CardHeader as CardHeaderComponent, CardBody as CardBodyComponent } from '@/components/common/Card';
 
@@ -192,6 +193,13 @@ export default function ExercisePage({ params }: ExercisePageProps) {
       return (
         <SpeedReaderExerciseComponent
           exercise={exercise as SpeedReaderExerciseType}
+          onComplete={handleExerciseComplete}
+        />
+      );
+    } else if (exercise.category === 'smooth-pursuit') {
+      return (
+        <SmoothPursuitExerciseComponent
+          exercise={exercise as SmoothPursuitExerciseType}
           onComplete={handleExerciseComplete}
         />
       );

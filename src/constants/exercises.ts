@@ -1,4 +1,4 @@
-import { Exercise, WordRecognitionExercise, SpeedTestExercise, PeripheralVisionExercise, SpeedReaderExercise } from '@/types';
+import { Exercise, WordRecognitionExercise, SpeedTestExercise, PeripheralVisionExercise, SpeedReaderExercise, SmoothPursuitExercise } from '@/types';
 
 // Word Recognition Exercise
 export const WORD_RECOGNITION_EXERCISE: WordRecognitionExercise = {
@@ -126,6 +126,20 @@ export const SPEEDREADER_EXERCISE: SpeedReaderExercise = {
   ],
 };
 
+// Smooth Pursuit Exercise (Eye Tracking)
+export const SMOOTH_PURSUIT_EXERCISE: SmoothPursuitExercise = {
+  id: 'smooth-pursuit-1',
+  title: 'Smooth Pursuit (Göz Takibi)',
+  description: 'Hareket eden hedefi takip ederek göz kontrol ve hız yeteneğinizi geliştirin',
+  category: 'smooth-pursuit',
+  difficulty: 'intermediate',
+  duration: 120,
+  icon: '🎯',
+  speeds: [2, 4, 6], // pixels per frame at ~60fps
+  targetSize: 30, // 30px diameter circle
+  trackingArea: { width: 800, height: 600 },
+};
+
 // Peripheral Vision Exercise
 export const PERIPHERAL_VISION_EXERCISE: PeripheralVisionExercise = {
   id: 'peripheral-vision-1',
@@ -147,6 +161,7 @@ export const ALL_EXERCISES: Exercise[] = [
   FOCUS_TRAINING_EXERCISE,
   COMPREHENSION_EXERCISE,
   SPEEDREADER_EXERCISE,
+  SMOOTH_PURSUIT_EXERCISE,
   PERIPHERAL_VISION_EXERCISE,
 ];
 
@@ -156,6 +171,7 @@ export const EXERCISE_CATEGORIES = {
   'comprehension': 'Anlama',
   'focus-training': 'Fokus Antrenmanı',
   'speedreader': 'Speed Reader (RSVP)',
+  'smooth-pursuit': 'Smooth Pursuit (Göz Takibi)',
   'peripheral-vision': 'Çevre Görüş',
 } as const;
 
