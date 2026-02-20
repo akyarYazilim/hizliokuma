@@ -9,9 +9,10 @@ import WordRecognitionExerciseComponent from '@/components/exercises/WordRecogni
 import PeripheralVisionExercise from '@/components/exercises/PeripheralVisionExercise';
 import SpeedReaderExerciseComponent from '@/components/exercises/SpeedReaderExercise';
 import SmoothPursuitExerciseComponent from '@/components/exercises/SmoothPursuitExercise';
+import AdvancedEyeTrackingExerciseComponent from '@/components/exercises/AdvancedEyeTrackingExercise';
 import { exerciseService } from '@/services/ExerciseService';
 import { storageService } from '@/services/StorageService';
-import { Exercise, ExerciseResult, SpeedTestExercise, WordRecognitionExercise as WordRecognitionExerciseType, PeripheralVisionExercise as PeripheralVisionExerciseType, SpeedReaderExercise as SpeedReaderExerciseType, SmoothPursuitExercise as SmoothPursuitExerciseType } from '@/types';
+import { Exercise, ExerciseResult, SpeedTestExercise, WordRecognitionExercise as WordRecognitionExerciseType, PeripheralVisionExercise as PeripheralVisionExerciseType, SpeedReaderExercise as SpeedReaderExerciseType, SmoothPursuitExercise as SmoothPursuitExerciseType, AdvancedEyeTrackingExercise as AdvancedEyeTrackingExerciseType } from '@/types';
 import { formatPercentage, getScoreBadge, getWPMLevel } from '@/utils/formatters';
 import { Card as CardComponent, CardHeader as CardHeaderComponent, CardBody as CardBodyComponent } from '@/components/common/Card';
 
@@ -200,6 +201,13 @@ export default function ExercisePage({ params }: ExercisePageProps) {
       return (
         <SmoothPursuitExerciseComponent
           exercise={exercise as SmoothPursuitExerciseType}
+          onComplete={handleExerciseComplete}
+        />
+      );
+    } else if (exercise.category === 'advanced-eye-tracking') {
+      return (
+        <AdvancedEyeTrackingExerciseComponent
+          exercise={exercise as AdvancedEyeTrackingExerciseType}
           onComplete={handleExerciseComplete}
         />
       );

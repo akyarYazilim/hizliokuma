@@ -16,7 +16,8 @@ export type ExerciseCategory =
   | 'focus-training' 
   | 'peripheral-vision'
   | 'speedreader'
-  | 'smooth-pursuit';
+  | 'smooth-pursuit'
+  | 'advanced-eye-tracking';
 
 export type DifficultyLevel = 'beginner' | 'intermediate' | 'advanced';
 
@@ -92,6 +93,15 @@ export interface SmoothPursuitExercise extends Exercise {
   speeds: number[]; // Available speed levels (pixels per second)
   targetSize: number; // Size of the target circle in pixels
   trackingArea: { width: number; height: number }; // Viewport dimensions
+}
+
+// Advanced Eye Tracking Exercise (Dynamic Target with patterns)
+export interface AdvancedEyeTrackingExercise extends Exercise {
+  speeds: number[]; // Available speed levels
+  sizeMultipliers: number[]; // Size change rates (1 = normal, 0.5-1.5 typical)
+  patterns: Array<'circle' | 'zigzag' | 'figure8' | 'spiral' | 'square'>; // Movement patterns
+  targetSize: number; // Base size
+  trackingArea: { width: number; height: number };
 }
 
 // API Response Types
